@@ -582,7 +582,7 @@ body {
 /* Container utama konten */
 .content {
   position: relative;
-  /* top: -150px; */
+  top: -165px;
   z-index: 10;
   max-width: 900px;
   width: 90%;
