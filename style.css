@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 30%, #0a1a3a, #030614);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  cursor: pointer;
+}
+
+/* Dekorasi geometris halus & islamic pattern */
+.pattern-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(212, 175, 55, 0.03) 0px,
+      rgba(212, 175, 55, 0.03) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.02) 0px,
+      rgba(212, 175, 55, 0.02) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+}
+
+/* Bulan sabit + bintang minimalis dengan animasi naik turun */
+.crescent-star {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  width: 110px;
+  height: 110px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+}
+
+/* Animasi naik turun untuk bulan dan bintang */
+.floating-moon {
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.floating-star-deco {
+  animation: floatUpDown 2.5s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.crescent {
+  width: 70px;
+  height: 70px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: -12px 6px 0 0 rgba(212, 175, 55, 0.7);
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  animation: moonFloat 3s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.star {
+  position: absolute;
+  top: 5px;
+  right: 70px;
+  font-size: 34px;
+  color: rgba(212, 175, 55, 0.8);
+  text-shadow: 0 0 6px gold;
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.star2 {
+  position: absolute;
+  top: 65px;
+  right: 15px;
+  font-size: 22px;
+  color: rgba(255, 215, 0, 0.7);
+  animation: starTwinkle 2.3s ease-in-out infinite;
+}
+
+/* Animasi kedip untuk bintang */
+@keyframes starTwinkle {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.star-deco {
+  position: fixed;
+  bottom: 8%;
+  left: 4%;
+  font-size: 28px;
+  color: rgba(212, 175, 55, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  transform: rotate(-10deg);
+}
+
+/* Container utama konten */
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  width: 90%;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(2px);
+  border-radius: 48px;
+  background: rgba(2, 10, 25, 0.3);
+  box-shadow:
+    0 20px 35px -15px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 240, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* teks utama besar */
+.main-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  font-weight: 800;
+  color: #e6c97e;
+  text-shadow:
+    0 0 8px rgba(212, 175, 55, 0.7),
+    0 0 18px rgba(0, 0, 0, 0.4),
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+  animation: fadeGlowUp 1.2s ease-out;
+}
+
+/* arabic text styling */
+.arabic {
+  font-family: "Poppins", "Times New Roman", serif;
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  font-weight: 500;
+  background: linear-gradient(135deg, #e8d094, #c9a53b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  margin: 1rem 0 0.5rem 0;
+  direction: rtl;
+  animation: fadeInScale 1s ease-out 0.2s backwards;
+}
+
+.arabic-sub {
+  font-size: 1.2rem;
+  margin-top: -0.2rem;
+  opacity: 0.9;
+}
+
+/* paragraf */
+.message {
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  font-weight: 400;
+  color: #dfd9c7;
+  margin-top: 1.8rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.3px;
+  background: rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 60px;
+  backdrop-filter: blur(4px);
+  animation: fadeInScale 1s ease-out 0.4s backwards;
+}
+
+/* footer kecil */
+.footer {
+  font-size: 0.8rem;
+  color: #ad9f72;
+  margin-top: 2.5rem;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  font-family: "Poppins", monospace;
+  border-top: 1px dashed rgba(212, 175, 55, 0.3);
+  display: inline-block;
+  padding-top: 1rem;
+  width: auto;
+  animation: fadeInScale 1s ease-out 0.6s backwards;
+}
+
+/* Animations */
+@keyframes softGlow {
+  0% {
+    text-shadow:
+      0 0 5px rgba(212, 175, 55, 0.5),
+      0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    text-shadow:
+      0 0 16px rgba(230, 201, 110, 0.9),
+      0 0 22px rgba(255, 215, 0, 0.4);
+  }
+}
+
+.main-title {
+  animation:
+    fadeGlowUp 1.2s ease-out,
+    softGlow 2.2s infinite alternate;
+}
+
+@keyframes fadeGlowUp {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .content {
+    width: 92%;
+    padding: 1.5rem 1rem;
+    backdrop-filter: blur(3px);
+  }
+  .crescent-star {
+    width: 70px;
+    height: 70px;
+    top: 3%;
+    right: 3%;
+    opacity: 0.6;
+  }
+  .star-deco {
+    bottom: 3%;
+    left: 3%;
+    font-size: 20px;
+  }
+  @keyframes floatUpDown {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+/* Canvas untuk efek kembang api */
+#fireworks-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Parallax background */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 40%, #0a1f44, #020514);
+  z-index: 0;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
