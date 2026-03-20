@@ -13,6 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow-y: auto;
   overflow-x: hidden;
   cursor: pointer;
 }
@@ -48,7 +49,7 @@ body {
   top: 50px;
   left: 0;
   width: 100%;
-  display: flex;
+  /* display: flex; */
   justify-content: space-around;
   align-items: flex-start;
   padding: 0 20px;
@@ -581,6 +582,7 @@ body {
 /* Container utama konten */
 .content {
   position: relative;
+  top: -150px;
   z-index: 10;
   max-width: 900px;
   width: 90%;
@@ -712,6 +714,7 @@ body {
 /* Responsive */
 @media (max-width: 640px) {
   .content {
+    min-height: 100vh;
     width: 92%;
     padding: 1.5rem 1rem;
     backdrop-filter: blur(3px);
