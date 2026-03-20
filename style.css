@@ -43,6 +43,442 @@ body {
     );
 }
 
+/* ==================== LENTERA EMAS ISLAMI ==================== */
+.lanterns-container {
+  top: 50px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0 20px;
+  z-index: 2;
+  pointer-events: none;
+  flex-wrap: wrap;
+}
+
+/* Base lentera */
+.lantern {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+  animation: swing 3.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Variasi ukuran */
+.lantern-small {
+  transform: scale(0.7);
+}
+.lantern-medium {
+  transform: scale(0.9);
+}
+.lantern-large {
+  transform: scale(1.1);
+}
+
+/* Animasi ayunan */
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  25% {
+    transform: rotate(3deg) translateY(-2px);
+  }
+  75% {
+    transform: rotate(-3deg) translateY(-2px);
+  }
+}
+
+/* Rantai gantungan */
+.lantern-chain {
+  width: 2px;
+  height: 35px;
+  background: linear-gradient(180deg, #ffd700, #c9a227);
+  position: relative;
+  margin-bottom: -3px;
+  z-index: 2;
+}
+
+.lantern-chain::before,
+.lantern-chain::after {
+  content: "⚬";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #ffd700;
+  text-shadow: 0 0 3px gold;
+}
+
+.lantern-chain::before {
+  top: -8px;
+}
+
+.lantern-chain::after {
+  bottom: -12px;
+}
+
+/* Kepala lentera (top cap) */
+.lantern-cap {
+  position: relative;
+  width: 48px;
+  height: 18px;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border-radius: 12px 12px 8px 8px;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 200, 0.6);
+  margin-bottom: -3px;
+  z-index: 3;
+}
+
+.lantern-cap::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 8px;
+  background: #b8860b;
+  border-radius: 4px 4px 0 0;
+}
+
+.lantern-cap::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #ffd700;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Badan lentera utama */
+.lantern-body {
+  position: relative;
+  width: 70px;
+  height: 100px;
+  background: radial-gradient(
+    ellipse at 30% 40%,
+    rgba(255, 215, 0, 0.15),
+    rgba(201, 162, 39, 0.08)
+  );
+  backdrop-filter: blur(2px);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  border: 3px solid;
+  border-image: linear-gradient(145deg, #ffd700, #b8860b, #ffd700) 1;
+  box-shadow:
+    inset 0 0 20px rgba(255, 215, 0, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Rangka dekoratif vertikal */
+.lantern-frame-vertical {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: calc(100% - 20px);
+  background: linear-gradient(180deg, #ffd700, #b8860b, #ffd700);
+  border-radius: 2px;
+  box-shadow: 0 0 4px gold;
+  z-index: 5;
+}
+
+/* Rangka dekoratif horizontal */
+.lantern-frame-horizontal {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  transform: translateY(-50%);
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffd700,
+    #ffd700,
+    #ffd700,
+    transparent
+  );
+  border-radius: 2px;
+  z-index: 5;
+}
+
+.lantern-frame-horizontal::before,
+.lantern-frame-horizontal::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 4px gold;
+}
+
+.lantern-frame-horizontal::before {
+  left: -4px;
+}
+
+.lantern-frame-horizontal::after {
+  right: -4px;
+}
+
+/* Dekorasi sudut (ornamen islami) */
+.lantern-ornament {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent);
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.lantern-ornament::before,
+.lantern-ornament::after {
+  content: "✦";
+  position: absolute;
+  font-size: 12px;
+  color: #ffd700;
+  text-shadow: 0 0 4px gold;
+}
+
+.lantern-ornament::before {
+  top: -5px;
+  left: -10px;
+}
+
+.lantern-ornament::after {
+  bottom: -5px;
+  right: -10px;
+}
+
+/* Efek cahaya dari dalam (kaca dengan glow) */
+.lantern-glass {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 230, 100, 0.4),
+    rgba(255, 200, 50, 0.1)
+  );
+  border-radius: 40% 40% 35% 35% / 50% 50% 30% 30%;
+  backdrop-filter: blur(1px);
+  box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.5);
+  animation: lightFlicker 2.2s ease-in-out infinite;
+}
+
+/* Efek kedip cahaya utama */
+@keyframes lightFlicker {
+  0%,
+  100% {
+    opacity: 0.7;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 230, 100, 0.5),
+      rgba(255, 200, 50, 0.15)
+    );
+    box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    opacity: 1;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 245, 140, 0.9),
+      rgba(255, 215, 0, 0.4)
+    );
+    box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.9);
+  }
+}
+
+/* Efek glow eksternal */
+.lantern-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 60% 60% 55% 55% / 70% 70% 50% 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent 70%);
+  filter: blur(12px);
+  z-index: -1;
+  animation: externalGlow 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes externalGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: blur(15px);
+  }
+}
+
+/* Dasar lentera (bottom cap) */
+.lantern-base {
+  position: relative;
+  width: 55px;
+  height: 16px;
+  background: linear-gradient(145deg, #ffd700, #b8860b);
+  border-radius: 8px 8px 12px 12px;
+  margin-top: -6px;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 200, 0.5);
+  z-index: 3;
+}
+
+.lantern-base::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  right: 10px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 2px;
+}
+
+/* Rumbai dekoratif */
+.lantern-tassel {
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(180deg, #ffd700, #b8860b);
+  border-radius: 0 0 4px 4px;
+  margin-top: -4px;
+  position: relative;
+  animation: tasselSwing 3.5s ease-in-out infinite;
+}
+
+@keyframes tasselSwing {
+  0%,
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-3px) rotate(-3deg);
+  }
+  75% {
+    transform: translateX(3px) rotate(3deg);
+  }
+}
+
+.lantern-tassel::after {
+  content: "❁";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #ffd700;
+  text-shadow: 0 0 4px gold;
+}
+
+/* Variasi delay animasi untuk setiap lentera */
+.lantern-1 {
+  animation-delay: 0s;
+}
+.lantern-1 .lantern-glass {
+  animation-delay: 0s;
+}
+.lantern-1 .lantern-glow {
+  animation-delay: 0s;
+}
+
+.lantern-2 {
+  animation-delay: 0.8s;
+}
+.lantern-2 .lantern-glass {
+  animation-delay: 0.5s;
+}
+.lantern-2 .lantern-glow {
+  animation-delay: 0.5s;
+}
+
+.lantern-3 {
+  animation-delay: 1.3s;
+}
+.lantern-3 .lantern-glass {
+  animation-delay: 0.9s;
+}
+.lantern-3 .lantern-glow {
+  animation-delay: 0.9s;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .lanterns-container {
+    top: 5px;
+    padding: 0 10px;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .lantern-small {
+    transform: scale(0.55);
+  }
+  .lantern-medium {
+    transform: scale(0.7);
+  }
+  .lantern-large {
+    transform: scale(0.85);
+  }
+
+  .lantern-body {
+    width: 55px;
+    height: 80px;
+  }
+
+  .lantern-cap {
+    width: 40px;
+    height: 14px;
+  }
+
+  .lantern-base {
+    width: 45px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lanterns-container {
+    gap: 8px;
+  }
+
+  .lantern-small {
+    transform: scale(0.45);
+  }
+  .lantern-medium {
+    transform: scale(0.6);
+  }
+  .lantern-large {
+    transform: scale(0.7);
+  }
+}
+
 /* Bulan sabit + bintang minimalis dengan animasi naik turun */
 .crescent-star {
   position: fixed;
@@ -152,11 +588,12 @@ body {
   text-align: center;
   padding: 2rem 1.5rem;
   backdrop-filter: blur(2px);
-  border-radius: 48px;
+  border-radius: 48px 48px 10px;
   background: rgba(2, 10, 25, 0.3);
   box-shadow:
-    0 20px 35px -15px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 240, 0.05);
+    0 0 15px rgba(255, 215, 0, 0.2),
+    0 20px 35px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 2px rgba(255, 215, 0, 0.4);
   transition: all 0.3s ease;
 }
 
@@ -186,7 +623,7 @@ body {
   color: transparent;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   margin: 1rem 0 0.5rem 0;
-  direction: rtl;
+  /* direction: rtl; */
   animation: fadeInScale 1s ease-out 0.2s backwards;
 }
 
